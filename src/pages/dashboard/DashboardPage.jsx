@@ -1,6 +1,8 @@
 
 export const DashboardPage = () => {
   return (
-    <div>DashboardPage</div>
+    <nav>
+      
+    </nav>
   )
 }
