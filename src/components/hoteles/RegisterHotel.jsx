@@ -68,6 +68,7 @@ export const RegisterHotel = () => {
   };
 
   return (
+    <div className="body">
     <div className="form-container">
       <h1>Registra tu Hotel</h1>
       <form className="registerH-form-Container" onSubmit={handleSubmit}>
@@ -185,6 +186,7 @@ export const RegisterHotel = () => {
           Registrar Hotel
         </button>
       </form>
+    </div>
     </div>
   );
 };

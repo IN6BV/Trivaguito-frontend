@@ -48,6 +48,7 @@ export const RegistroHabitaciones = () => {
   };
 
   return (
+    <div className="body">
     <div className="form-container-habitaciones">
       <form onSubmit={handleSubmit}>
         <Input
@@ -112,6 +113,7 @@ export const RegistroHabitaciones = () => {
         />
         <button type="submit" disabled={isLoading}>Registrar Habitación</button>
       </form>
+    </div>
     </div>
   );
 };
