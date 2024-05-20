@@ -65,6 +65,19 @@ export const registerHotel = async (data) => {
 };
 
 
+/**Habitaciones */
+export const registroHabitacion = async(data)  =>{
+    try {
+        return await apiClient.post('/habitacion/addHabitacion', data)
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+
 export const fetchHotelReservations = async () => {
     try {
         return await apiClient.get('/hotel/getHotelsForReport');

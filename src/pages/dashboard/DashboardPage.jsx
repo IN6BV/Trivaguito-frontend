@@ -1,10 +1,10 @@
-import { RegisterHotel } from "../../components/hoteles/RegisterHotel"
+import { RegistroHabitaciones } from "../../components/habitaciones/RegistroHabitaciones"
 
 import "./dashboardPage.css"
 export const DashboardPage = () => {
   return (
     <div>
-      <RegisterHotel/>
+      <RegistroHabitaciones/>
     </div>
   )
 }

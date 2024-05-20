@@ -1,10 +1,9 @@
 import { useState } from "react";
-
-import { useRegisterH } from "../../shared/hooks";
+import {useRegisterH} from "../../shared/hooks/useRegisterH"
+import { Input } from "../Input";
 
 export const RegisterHotel = () => {
-
-    const { registerHotel, isLoading } = useRegisterH();
+  const { registerHotel, isLoading } = useRegisterH();
 
   const [registerH, setRegisterH] = useState({
     nombreHotel: { value: "", isValid: false, showError: false },
@@ -30,8 +29,7 @@ export const RegisterHotel = () => {
   };
 
   const handleInputValidationOnBlur = (value, field) => {
-    let isValid = false;
-    // Aquí puedes agregar la validación según tus necesidades
+    let isValid = value.trim() !== "";  // Añade aquí tu lógica de validación
     setRegisterH((prevState) => ({
       ...prevState,
       [field]: {
@@ -68,101 +66,61 @@ export const RegisterHotel = () => {
       registerH.precio.value
     );
   };
-  
+
   return (
     <div className="form-container">
       <h1>Registra tu Hotel</h1>
-      <form className="registerH-form-Container">
-        <div className="form-group">
-          <label className="form-label" htmlFor="nombreHotel">
-            Nombre del hotel:
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="nombreHotel"
-            name="nombreHotel"
-            value={registerH.nombreHotel.value}
-            onChange={(e) =>
-              handleInputValueChange(e.target.value, "nombreHotel")
-            }
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "nombreHotel")
-            }
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="direccion">
-            Dirección:
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="direccion"
-            name="direccion"
-            value={registerH.direccion.value}
-            onChange={(e) =>
-              handleInputValueChange(e.target.value, "direccion")
-            }
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "direccion")
-            }
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="categoria">
-            Categoría:
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="categoria"
-            name="categoria"
-            value={registerH.categoria.value}
-            onChange={(e) =>
-              handleInputValueChange(e.target.value, "categoria")
-            }
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "categoria")
-            }
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="rangoPrecios">
-            Rango de precios:
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="rangoPrecios"
-            name="rangoPrecios"
-            value={registerH.rangoPrecios.value}
-            onChange={(e) =>
-              handleInputValueChange(e.target.value, "rangoPrecios")
-            }
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "rangoPrecios")
-            }
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="comodidades">
-            Comodidades:
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="comodidades"
-            name="comodidades"
-            value={registerH.comodidades.value}
-            onChange={(e) =>
-              handleInputValueChange(e.target.value, "comodidades")
-            }
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "comodidades")
-            }
-          />
-        </div>
+      <form className="registerH-form-Container" onSubmit={handleSubmit}>
+        <Input
+          field="nombreHotel"
+          label="Nombre del hotel"
+          value={registerH.nombreHotel.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          showErrorMessage={registerH.nombreHotel.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
+        <Input
+          field="direccion"
+          label="Dirección"
+          value={registerH.direccion.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          showErrorMessage={registerH.direccion.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
+        <Input
+          field="categoria"
+          label="Categoría"
+          value={registerH.categoria.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          showErrorMessage={registerH.categoria.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
+        <Input
+          field="rangoPrecios"
+          label="Rango de precios"
+          value={registerH.rangoPrecios.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          showErrorMessage={registerH.rangoPrecios.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
+        <Input
+          field="comodidades"
+          label="Comodidades"
+          value={registerH.comodidades.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          showErrorMessage={registerH.comodidades.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
         <div className="form-group">
           <label className="form-label" htmlFor="fotosHotel">
             Fotos del hotel:
@@ -179,75 +137,53 @@ export const RegisterHotel = () => {
               handleInputValidationOnBlur(e.target.files, "fotosHotel")
             }
           />
+          {registerH.fotosHotel.showError && (
+            <span className="error-message">Este campo es obligatorio</span>
+          )}
         </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="usoHotelPorEvento">
-            Uso del hotel por evento:
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="usoHotelPorEvento"
-            name="usoHotelPorEvento"
-            value={registerH.usoHotelPorEvento.value}
-            onChange={(e) =>
-              handleInputValueChange(e.target.value, "usoHotelPorEvento")
-            }
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "usoHotelPorEvento")
-            }
-          />
-        </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="nombre">
-            Nombre (responsable):
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="nombre"
-            name="nombre"
-            value={registerH.nombre.value}
-            onChange={(e) => handleInputValueChange(e.target.value, "nombre")}
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "nombre")
-            }
-          />
-        </div>
-        <div className="form-group" style={{ gridColumn: "span 2" }}>
-          <label className="form-label" htmlFor="descripcion">
-            Descripción:
-          </label>
-          <textarea
-            className="form-input"
-            id="descripcion"
-            name="descripcion"
-            value={registerH.descripcion.value}
-            onChange={(e) =>
-              handleInputValueChange(e.target.value, "descripcion")
-            }
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "descripcion")
-            }
-          ></textarea>
-        </div>
-        <div className="form-group">
-          <label className="form-label" htmlFor="precio">
-            Precio:
-          </label>
-          <input
-            className="form-input"
-            type="text"
-            id="precio"
-            name="precio"
-            value={registerH.precio.value}
-            onChange={(e) => handleInputValueChange(e.target.value, "precio")}
-            onBlur={(e) =>
-              handleInputValidationOnBlur(e.target.value, "precio")
-            }
-          />
-        </div>
-        <button type="submit" disabled={isLoading} onClick={handleSubmit}>Registrar Hotel</button>
+        <Input
+          field="usoHotelPorEvento"
+          label="Uso del hotel por evento"
+          value={registerH.usoHotelPorEvento.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          showErrorMessage={registerH.usoHotelPorEvento.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
+        <Input
+          field="nombre"
+          label="Nombre (responsable)"
+          value={registerH.nombre.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          showErrorMessage={registerH.nombre.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
+        <Input
+          field="descripcion"
+          label="Descripción"
+          value={registerH.descripcion.value}
+          onChangeHandler={handleInputValueChange}
+          textarea
+          showErrorMessage={registerH.descripcion.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
+        <Input
+          field="precio"
+          label="Precio"
+          value={registerH.precio.value}
+          onChangeHandler={handleInputValueChange}
+          type="text"
+          showErrorMessage={registerH.precio.showError}
+          validationMessage="Este campo es obligatorio"
+          onBlurHandler={handleInputValidationOnBlur}
+        />
+        <button type="submit" disabled={isLoading}>
+          Registrar Hotel
+        </button>
       </form>
     </div>
   );
