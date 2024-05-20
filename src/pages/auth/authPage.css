@@ -104,7 +104,7 @@ a {
   border: 2px solid #0F3460;
   border-radius: 4px;
   background: transparent;
-  color: white;
+  color: black;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
