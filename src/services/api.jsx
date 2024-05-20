@@ -51,3 +51,26 @@ export const getUser = async () => {
         };
     }
 }
+
+export const getUserById = async (userId) => {
+    try{
+        return await apiClient.get(`/byId/${userId}`)
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
+
+
+export const putUser = async (data) => {
+    try{
+        return await apiClient.put()
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}

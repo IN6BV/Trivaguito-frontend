@@ -120,6 +120,7 @@ export const Register = ({ switchAuthHandler }) => {
     
     
   return (
+    <div className="body">
     <div className="container">
       <div className="logo">
         <img src={logo} alt="Logo" className="logo" />
@@ -195,7 +196,8 @@ export const Register = ({ switchAuthHandler }) => {
         </button>
       </form>
       <br></br>
-      <span className="registro" onClick={switchAuthHandler}>Ya tienes cuenta? inicia sesion!</span>
+      <span className="registro" onClick={switchAuthHandler}>Ya tienes una cuenta? inicia sesion!</span>
+    </div>
     </div>
   );
 };
