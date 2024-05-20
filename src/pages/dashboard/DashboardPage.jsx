@@ -1,10 +1,9 @@
-import { RegistroHabitaciones } from "../../components/habitaciones/RegistroHabitaciones"
+import { Navbar } from "../../components/navbar/Navbar"
+
 
 import "./dashboardPage.css"
 export const DashboardPage = () => {
   return (
-    <div>
-      <RegistroHabitaciones/>
-    </div>
+    <Navbar/>
   )
 }

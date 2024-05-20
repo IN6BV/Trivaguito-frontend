@@ -68,6 +68,7 @@ export const Login = ({ switchAuthHandler }) => {
   const isSubmitButtonDisabled =
     isLoading || !formState.password.isValid || !formState.email.isValid;
   return (
+    <div className="body">
     <div className="container">
       <div className="logo">
         <img src={logo} alt="Logo" className="logo" />
@@ -108,6 +109,7 @@ export const Login = ({ switchAuthHandler }) => {
           Puedes registrarte aqui
         </span>
       </div>
+    </div>
     </div>
   );
 };

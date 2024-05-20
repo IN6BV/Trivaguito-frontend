@@ -1,5 +1,5 @@
 import logo from "../../assets/img/fav.png";
-import "./authPage.css";
+//import "./authPage.css";
 import { Login } from "../../components/Login";
 import { Register } from "../../components/Register";
 import { useState } from "react";
