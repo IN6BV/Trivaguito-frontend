@@ -51,3 +51,15 @@ export const getUser = async () => {
         };
     }
 }
+
+/***Hoteles */
+export const registerHotel = async (data) => {
+    try {
+        return await apiClient.post('/hotel/addHotel', data);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+};
