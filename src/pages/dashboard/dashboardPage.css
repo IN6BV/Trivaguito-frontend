@@ -1,94 +1,9 @@
-.form-container {
-    background-color: #ffffff; /* Cambio a un fondo blanco para mejor legibilidad */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin: auto;
-    width: 1000px;
-}
-
-.form-container h1 {
-    color: #0F3460;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.registerH-form-Container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
-    gap: 20px; /* Espacio entre las columnas */
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-label {
-    font-size: 16px;
-    color: #000000;
-    margin-bottom: 5px;
-}
-
-.form-input {
-    font-size: 16px;
-    padding: 10px;
-    margin-bottom: 15px;
-    background-color: #F3F4F6;
-    border: 1px solid #D1D5DB;
-    color:black;
-    border-radius: 4px;
-}
-
-.form-input:focus {
-    border-color: #45ade9;
-    box-shadow: 0 0 3px #45ade9;
-    outline: none;
-}
-
-textarea.form-input {
-    min-height: 100px; /* Aumentar la altura inicial para textareas */
-    height: auto;
-    resize: vertical; /* Permitir cambiar el tamaño verticalmente */
-}
-
-button {
-    grid-column: span 2; /* Hacer que el botón ocupe las dos columnas */
-    background-color: #0F3460;
-    color: black;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    align-self: center; /* Centrar el botón horizontalmente */
-}
-
-button:hover {
-    background-color: #45ade9;
-}
-
-.form-container-habitaciones{
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin: auto;
-    width: 400px;
-}
-
-
 .navbar-container {
     background-color: #0D0D0D;
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
     border-bottom: 2 solid #0F3460;
     position: fixed;
     top: 0;
@@ -96,29 +11,28 @@ button:hover {
     z-index: 3000;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-  }
-  
-  .navbar-logo {
+}
+
+.navbar-logo {
     height: 60px;
-  }
-  
-  .navbar-buttons {
+}
+
+.navbar-buttons {
     display: flex;
     gap: 15px;
-  }
-  
-  .nav-button {
+}
+
+.nav-button {
     color: white;
     cursor: pointer;
     padding: 10px 15px;
     border: 2px solid transparent;
     border-radius: 4px;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-  }
-  
-  .nav-button:hover {
+}
+
+.nav-button:hover {
     background-color: #4EB1D9;
     color: white;
     border-color: #4EB1D9;
-  }
-  
+}

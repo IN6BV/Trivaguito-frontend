@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'http://192.168.1.9:3000/trivaguito/v1',
+    baseURL: 'http://127.0.0.1:3000/trivaguito/v1',
     timeout: 5000
 });
 
