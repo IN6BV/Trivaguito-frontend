@@ -54,3 +54,34 @@ export const fetchHotelReservations = async () => {
         };
     }
 }
+export const fetchReservationsForHotel = async (hotelId) =>{
+    try {
+        return await apiClient.get(`/hotel/getHotelReservations/${hotelId}`);
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+export const fetchUsersWithReservationsInHotel = async (hotelId) =>{
+    try {
+        return await apiClient.get(`/hotel/getAllUsersWithReservationsInHotel/${hotelId}`);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
+export const checkRoomAvailability  = async (hotelId) =>{
+    try {
+        return await apiClient.get(`/hotel/getHabitationBookOrNot/${hotelId}`);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
