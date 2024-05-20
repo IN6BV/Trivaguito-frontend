@@ -52,6 +52,7 @@ export const getUser = async () => {
     }
 }
 
+
 export const fetchHotelReservations = async () => {
     try {
         return await apiClient.get('/hotel/getHotelsForReport');
