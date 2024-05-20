@@ -1,8 +1,10 @@
+import { RegisterHotel } from "../../components/hoteles/RegisterHotel"
 
+import "./dashboardPage.css"
 export const DashboardPage = () => {
   return (
-    <nav>
-      
-    </nav>
+    <div>
+      <RegisterHotel/>
+    </div>
   )
 }
