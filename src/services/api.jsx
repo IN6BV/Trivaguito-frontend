@@ -56,7 +56,7 @@ export const fetchHotelReservations = async () => {
 }
 export const fetchReservationsForHotel = async (hotelId) =>{
     try {
-        return await apiClient.get(`/hotel/getHotelReservations/${hotelId}`);
+        return await apiClient.get('/hotel/getHotelReservations');
     } catch (e) {
         return{
             error: true,

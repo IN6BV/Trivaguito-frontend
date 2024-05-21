@@ -1,40 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fetchReservationsForHotel } from '../../services/api';
 import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
 export const HotelReservations = () => {
-  const [hotelId, setHotelId] = useState('');
   const [reservations, setReservations] = useState([]);
   const [error, setError] = useState('');
-  const handleSearch = async () => {
-    if (!hotelId) {
-      setError('Please enter a hotel ID');
-      return;
+  useEffect(() =>{
+    const fetchReservations = async () =>{
+      const response = await fetchReservationsForHotel()
+      if(!response.error){
+        setReservations(response.data.reservations)
+        setError('')
+      }else{
+        setReservations([]);
+        setError('Error al traer las reservaciones');
+      }
     }
-    const response = await fetchReservationsForHotel(hotelId);
-    if (!response.error) {
-      setReservations(response.data.reservations);
-      setError('');
-    } else {
-      setReservations([]);
-      setError('Error fetching reservations');
-    }
-  };
+    fetchReservations()
+  }, [])
   return (
     <div>
-      <Form.Group controlId="formHotelId">
-        <Form.Label>Ingrese el ID del hotel</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Hotel ID"
-          value={hotelId}
-          onChange={(e) => setHotelId(e.target.value)}
-        />
-      </Form.Group>
-      <Button variant="primary" onClick={handleSearch}>
-        Buscar
-      </Button>
+      <h2>Reservaciones del Hotel</h2>
       {error && <p className="text-danger">{error}</p>}
       <div>
         {reservations.map((reservation) => (
