@@ -54,13 +54,24 @@ export const getUser = async () => {
 
 export const getUserById = async (userId) => {
     try {
-        return await apiClient.get(`/registro/byId/${userId}`); // Asegúrate de que esta ruta coincida con la del backend
+        return await apiClient.get(`/registro/byId/${userId}`); 
     } catch (e) {
         return {
             error: true,
             e
         };
     }
+}
+
+export const userUpdate = async (data) => {
+    try {
+        return await apiClient.put('/registro/update', data); 
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }    
 }
 
 /***Hoteles */

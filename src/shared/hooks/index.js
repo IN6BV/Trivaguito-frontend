@@ -4,5 +4,5 @@ export { useLogin } from "./useLogin";
 export {useRegister} from './useRegister'
 export {logout} from './useLogout'
 export {useUserById} from './useUserById'
-
+export {useUserUpdate} from './useUserUpdate'
 export {useRegisterHabitacion} from "./useRegistroHabitaciones"
