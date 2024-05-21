@@ -8,7 +8,6 @@ const routes = [
     {path: '/*', element: <DashboardPage/>},
     {path: '/plataformManager', element: <DashboardPlataform/>},
     {path: '/hotelManager', element: <DashboardHotel/>}
-
 ]
 
 export default routes
