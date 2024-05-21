@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'http://127.0.0.1:3000/trivaguito/v1',
+    baseURL: 'http://127.0.0.1:3000/trivaguito/v1', // Asegúrate de que esta URL base sea correcta
     timeout: 5000
 });
 
@@ -53,8 +53,8 @@ export const getUser = async () => {
 }
 
 export const getUserById = async (userId) => {
-    try{
-        return await apiClient.get(`/byId/${userId}`)
+    try {
+        return await apiClient.get(`/registro/byId/${userId}`); // Asegúrate de que esta ruta coincida con la del backend
     } catch (e) {
         return {
             error: true,
@@ -63,17 +63,6 @@ export const getUserById = async (userId) => {
     }
 }
 
-
-export const putUser = async (data) => {
-    try{
-        return await apiClient.put()
-    }catch(e){
-        return{
-            error: true,
-            e
-        }
-    }
-}
 /***Hoteles */
 export const registerHotel = async (data) => {
     try {
@@ -86,19 +75,17 @@ export const registerHotel = async (data) => {
     }
 };
 
-
 /**Habitaciones */
-export const registroHabitacion = async(data)  =>{
+export const registroHabitacion = async(data)  => {
     try {
-        return await apiClient.post('/habitacion/addHabitacion', data)
+        return await apiClient.post('/habitacion/addHabitacion', data);
     } catch (e) {
-        return{
+        return {
             error: true,
             e
-        }
+        };
     }
 }
-
 
 export const fetchHotelReservations = async () => {
     try {
