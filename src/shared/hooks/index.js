@@ -7,5 +7,5 @@ export {useRegister} from './useRegister'
 export {logout} from './useLogout'
 export {useUserById} from './useUserById'
 export { useUserDelete } from "./useUserDelete";
-export {useRegisterHabitacion} from "./useRegistroHabitaciones"
 export {useUserUpdate} from './useUserUpdate'
+export {useRegisterHabitacion} from "./useRegistroHabitaciones"

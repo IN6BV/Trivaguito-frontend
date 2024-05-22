@@ -1,4 +1,3 @@
-import React from 'react';
 import {fetchHotelReservations} from '../../services/api'
 import Chart from 'chart.js/auto';
 import { useEffect } from 'react';
@@ -42,7 +41,7 @@ export const ReportHotels = ({autoRender}) => {
     };
 
     return (
-        <div>
+        <div className='button-grafic-container'>
             <canvas id="myChart"></canvas>
             {!autoRender && (
                 <button onClick={handleClick}>
