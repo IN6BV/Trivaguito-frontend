@@ -54,7 +54,7 @@ export const fetchHotelReservations = async () => {
         };
     }
 }
-export const fetchReservationsForHotel = async (hotelId) =>{
+export const fetchReservationsForHotel = async () =>{
     try {
         return await apiClient.get('/hotel/getHotelReservations');
     } catch (e) {
@@ -65,9 +65,9 @@ export const fetchReservationsForHotel = async (hotelId) =>{
     }
 }
 
-export const fetchUsersWithReservationsInHotel = async (hotelId) =>{
+export const fetchUsersWithReservationsInHotel = async () =>{
     try {
-        return await apiClient.get(`/hotel/getAllUsersWithReservationsInHotel/${hotelId}`);
+        return await apiClient.get('/hotel/getAllUsersWithReservationsInHotel');
     } catch (e) {
         return {
             error: true,

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchReservationsForHotel } from '../../services/api';
 import Card from 'react-bootstrap/Card';
+import { CardGroup } from 'react-bootstrap';
 export const HotelReservations = () => {
   const [reservations, setReservations] = useState([]);
   const [error, setError] = useState('');
@@ -22,6 +23,7 @@ export const HotelReservations = () => {
       <h2>Reservaciones del Hotel</h2>
       {error && <p className="text-danger">{error}</p>}
       <div>
+        <CardGroup>
         {reservations.map((reservation) => (
           <Card
             key={reservation._id}
@@ -39,6 +41,7 @@ export const HotelReservations = () => {
             </Card.Body>
           </Card>
         ))}
+        </CardGroup>
       </div>
     </div>
   );
