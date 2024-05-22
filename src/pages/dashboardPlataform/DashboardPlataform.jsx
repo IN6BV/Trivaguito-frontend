@@ -1,22 +1,22 @@
-import { ReportHotels } from "../../components/reports/ReportHotels";
-import { Navbar } from "../../components/navbar/Navbar";
-//import { TableUsuarioRegiste } from "../../components/TableUsuario/TableUsuariosAdmin";
-import { TablePendientes } from "../../components/TableUsuario/TableUserEspera";
-
-import "./dashboardPlataform.css";
+import React from 'react';
+import { ReportHotels } from '../../components/reports/ReportHotels';
+import { Navbar } from '../../components/navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 export const DashboardPlataform = () => {
 
   return (
-    <div className="dashboard-container">
+    <>
       <Navbar />
       <div>
-        <ReportHotels />
-        <div className="title-container">
-            <h1>Usuarios Registrados</h1>
-        </div>
-          <TablePendientes/>
+        <h1>Dashboard Plataforma</h1>
+        <Link to="/reportHotel">
+          <button>Generar Reporte de Hoteles</button>
+        </Link>
+        <Link to="/dashboardHotels">
+          <button>Ver Dashboard Hoteles</button>
+        </Link>
       </div>
-    </div>
+    </>
   );
 };

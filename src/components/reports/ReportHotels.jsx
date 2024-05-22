@@ -1,7 +1,13 @@
 import {fetchHotelReservations} from '../../services/api'
 import Chart from 'chart.js/auto';
+import { useEffect } from 'react';
+export const ReportHotels = ({autoRender}) => {
+    useEffect(() => {
+        if (autoRender) {
+            handleClick();
+        }
+    }, [autoRender]);
 
-export const ReportHotels = () => {
     const handleClick = async () => {
         const response = await fetchHotelReservations();
         const data = response.data.hotels;
@@ -37,9 +43,11 @@ export const ReportHotels = () => {
     return (
         <div className='button-grafic-container'>
             <canvas id="myChart"></canvas>
-            <button onClick={handleClick} className='edit-user-button'>
-                Ver Gráfica de Hoteles Más Solicitados
-            </button>
+            {!autoRender && (
+                <button onClick={handleClick}>
+                    Ver Gráfica de Hoteles Más Solicitados
+                </button>
+            )}
         </div>
     );
 };

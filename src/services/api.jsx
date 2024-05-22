@@ -41,9 +41,33 @@ export const register = async (data) => {
     }
 };
 
+export const userUpdate = async (userId, data) => {
+    try {
+        console.log(userId)
+        return await apiClient.put(`/registro/update/${userId}`, data); 
+    } catch (e) {
+        console.log(data, userId)
+        return {
+            error: true,
+            e
+        };
+    }    
+};
+
 export const getUser = async () => {
     try {
         return await apiClient.get('/registro/');
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
+
+export const deleteUser = async (userId) => {
+    try {
+        return await apiClient.delete(`/registro/delete/${userId}`); 
     } catch (e) {
         return {
             error: true,
@@ -111,3 +135,24 @@ export const fetchHotelReservations = async () => {
         };
     }
 }
+export const fetchReservationsForHotel = async () => {
+    try {
+        return await apiClient.get('/hotel/getHotelReservations');
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+};
+
+export const fetchUsersWithReservationsInHotel = async () => {
+    try {
+        return await apiClient.get('/hotel/getAllUsersWithReservationsInHotel');
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+};
