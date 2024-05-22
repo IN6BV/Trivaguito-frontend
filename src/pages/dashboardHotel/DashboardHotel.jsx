@@ -2,6 +2,7 @@ import React from 'react'
 import { HotelReservations } from '../../components/reports/ReservationsHotel'
 import { HotelUserReservations } from '../../components/reports/UserReservationsHotel'
 import { ReservationStateGet } from '../../components/reports/ReservationStateGet'
+import { AddHabitationForm } from '../../components/habitaciones/AddHabitationForm'
 export const DashboardHotel = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -12,6 +13,9 @@ export const DashboardHotel = () => {
       <br/>
       <br/>
       <ReservationStateGet/>
+      <br/>
+      <br/>
+      <AddHabitationForm/>
     </div>
   )
 }
