@@ -43,9 +43,7 @@ export const register = async (data) => {
 
 export const getUser = async () => {
     try {
-        const hola = await apiClient.get('/registro');
-            console.log(hola)
-        return hola;
+        return await apiClient.get('/registro/');
     } catch (e) {
         return {
             error: true,
