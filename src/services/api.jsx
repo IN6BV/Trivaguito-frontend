@@ -87,6 +87,15 @@ export const getUserById = async (userId) => {
     }
 }
 
+export const getHabitacion = async () => {
+    try{
+        return await apiClient.get('/habitacion/getHabitaciones')
+    }catch(e){
+        error: true,
+        e
+    }
+}
+
 /***Hoteles */
 export const registerHotel = async (data) => {
     try {

@@ -1,3 +1,5 @@
+export { useHabitacionGet } from "./useHabitacionGet";
+export { getHabitacion } from "../../services/api";
 export { useUserDetails } from "./useUserDetails";
 export {useRegisterH} from "./useRegisterH"
 export { useLogin } from "./useLogin";

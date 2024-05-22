@@ -81,3 +81,28 @@
     }
   }
   
+
+  /* dashboardPage.css */
+.dashboard-content {
+  padding: 20px;
+}
+
+/* Add these styles if needed for the habitaciones component */
+.habitaciones-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.habitacion-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.habitacion-fotos img {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
