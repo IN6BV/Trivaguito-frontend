@@ -43,6 +43,9 @@ export const MyAccount = () => {
     setShowModal(false);
   };
 
+  const handleHome = () => {
+    navigate('/');
+  }
   return (
     <div className='body'>
       <Navbar/>
@@ -56,6 +59,7 @@ export const MyAccount = () => {
             <div className="button-group">
               <button onClick={handleEditClick} className="btn edit-btn">Editar</button>
               <button onClick={handleDeleteClick} className="btn delete-btn">Eliminar</button>
+              <button onClick={handleHome} className="btn delete-btn">Home</button>
             </div>
           </div>
         </div>
