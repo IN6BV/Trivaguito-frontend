@@ -2,6 +2,8 @@ import React from 'react'
 import { HotelReservations } from '../../components/reports/ReservationsHotel'
 import { HotelUserReservations } from '../../components/reports/UserReservationsHotel'
 import { ReservationStateGet } from '../../components/reports/ReservationStateGet'
+import { AddHabitationForm } from '../../components/habitaciones/AddHabitationForm'
+import { GetHabitationsRD } from '../../components/habitaciones/GetHabitationsRD'
 import './dashboardHotel.css'
 export const DashboardHotel = () => {
   return (
@@ -13,6 +15,12 @@ export const DashboardHotel = () => {
       <br/>
       <br/>
       <ReservationStateGet/>
+      <br/>
+      <br/>
+      <AddHabitationForm/>
+      <br/>
+      <br/>
+      <GetHabitationsRD/>
     </div>
   )
 }

@@ -164,6 +164,37 @@ export const fetchUsersWithReservationsInHotel = async () => {
     }
 };
 
+export const getHabitationsFromHotel = async () =>{
+    try {
+        return await apiClient.get('/habitacion/getHabitationsFromHotel')
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}
+export const putHabitacion = async (habitacionId, data) => {
+    try {
+        return await apiClient.put(`/habitacion/updateHabitacion/${habitacionId}`, data);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
+export const deleteHabitation = async (habitacionId) => {
+    try {
+        return await apiClient.delete(`/habitacion/deleteHabitacion/${habitacionId}`);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
+
 export const listarInteresados = async () => {
     try {
         return await apiClient.get('/listaEspera/gets');
