@@ -32,7 +32,7 @@ export const HotelUserReservations = () => {
               <Card.Body>
                 <Card.Img variant="top" 
                   src={reservation.idUsuario.foto} 
-                  style={{ width: '100px', height: '100px', objectFit: 'cover', marginLeft: '70px' }} />
+                  style={{ width: '100px', height: '100px', objectFit: 'cover'}} />
                 <Card.Title>{reservation.idUsuario.email}</Card.Title>
                 <Card.Text>
                   Nombre: {reservation.idUsuario.nombre}

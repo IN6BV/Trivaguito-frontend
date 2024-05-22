@@ -97,3 +97,24 @@ export const fetchHotelReservations = async () => {
         };
     }
 }
+export const fetchReservationsForHotel = async () => {
+    try {
+        return await apiClient.get('/hotel/getHotelReservations');
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+};
+
+export const fetchUsersWithReservationsInHotel = async () => {
+    try {
+        return await apiClient.get('/hotel/getAllUsersWithReservationsInHotel');
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+};
