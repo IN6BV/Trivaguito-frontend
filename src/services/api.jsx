@@ -118,3 +118,14 @@ export const fetchUsersWithReservationsInHotel = async () => {
         };
     }
 };
+
+export const getHabitationsFromHotel = async () =>{
+    try {
+        return await apiClient.get('/habitacion/getHabitationsFromHotel')
+    } catch (e) {
+        return{
+            error: true,
+            e
+        }
+    }
+}

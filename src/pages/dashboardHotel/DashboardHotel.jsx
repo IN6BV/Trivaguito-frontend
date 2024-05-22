@@ -3,6 +3,7 @@ import { HotelReservations } from '../../components/reports/ReservationsHotel'
 import { HotelUserReservations } from '../../components/reports/UserReservationsHotel'
 import { ReservationStateGet } from '../../components/reports/ReservationStateGet'
 import { AddHabitationForm } from '../../components/habitaciones/AddHabitationForm'
+import { GetHabitationsRD } from '../../components/habitaciones/GetHabitationsRD'
 export const DashboardHotel = () => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -16,6 +17,9 @@ export const DashboardHotel = () => {
       <br/>
       <br/>
       <AddHabitationForm/>
+      <br/>
+      <br/>
+      <GetHabitationsRD/>
     </div>
   )
 }
