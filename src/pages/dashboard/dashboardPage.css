@@ -81,28 +81,75 @@
     }
   }
   
-
-  /* dashboardPage.css */
+/* dashboardPage.css */
 .dashboard-content {
-  padding: 20px;
+  padding: 80px 20px 20px; /* Adjust padding to accommodate fixed navbar */
+  margin-top: 60px; /* Adjust margin for top space */
+  background-color: #F5F5F5;
 }
 
-/* Add these styles if needed for the habitaciones component */
+/* Habitaciones container */
 .habitaciones-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
+  padding: 20px 0;
 }
 
+/* Habitacion card */
 .habitacion-card {
+  background-color: #FFFFFF;
   border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
   width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.habitacion-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.habitacion-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #0F3460;
+}
+
+.habitacion-card p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Photo Gallery */
+.habitacion-fotos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .habitacion-fotos img {
   width: 100%;
   height: auto;
-  margin-top: 10px;
+  border-radius: 5px;
+  object-fit: cover;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .habitacion-card {
+      width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .habitacion-card {
+      width: 100%;
+  }
+}
+

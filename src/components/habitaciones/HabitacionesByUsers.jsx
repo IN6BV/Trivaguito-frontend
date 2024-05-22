@@ -1,9 +1,14 @@
+// HabitacionesByUsers.js
 import React from 'react';
 import { useHabitacionGet } from '../../shared/hooks';
+import '../../pages/dashboard/dashboardPage.css'; // Make sure to include the CSS file
 
 export const HabitacionesByUsers = () => {
-    const { habitaciones } = useHabitacionGet();
+    const { habitaciones, loading } = useHabitacionGet();
 
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div>
@@ -24,5 +29,5 @@ export const HabitacionesByUsers = () => {
                 ))}
             </div>
         </div>
-    )
-}
+    );
+};
