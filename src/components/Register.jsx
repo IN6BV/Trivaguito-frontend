@@ -1,3 +1,4 @@
+import React from 'react';
 import logo from "../assets/img/fav.png";
 import { useRegister } from "../shared/hooks";
 import { Input } from "./Input";
@@ -12,9 +13,9 @@ import {
     validatePasswordConfir,
     validateEmail,
     validateEmpty
-} from "../shared/validators"
+} from "../shared/validators";
 
-import './register.css'
+import './register.css';
 
 export const Register = ({ switchAuthHandler }) => {
   const { register, isLoading } = useRegister();
@@ -99,7 +100,7 @@ export const Register = ({ switchAuthHandler }) => {
   
   const handleRegister = (event) => {
     event.preventDefault();
-    console.log(formState)
+    console.log(formState);
     register(
       formState.nombre.value,
       formState.apellido.value,
@@ -118,86 +119,89 @@ export const Register = ({ switchAuthHandler }) => {
     !formState.password.isValid ||
     !formState.passwordConfir.isValid;
     
-    
   return (
-    <div className="body">
-    <div className="container">
-      <div className="logo">
-        <img src={logo} alt="Logo" className="logo" />
+    <div className="register-body">
+      <div className="register-container">
+        <div className="register-logo">
+          <img src={logo} alt="Logo" className="register-logo" />
+        </div>
+        <h1 className="register-title">Registro</h1>
+        <form>
+          <Input
+            className="register-input-field"
+            field="nombre"
+            label="Nombre"
+            value={formState.nombre.value}
+            onChangeHandler={handleInputValueChange}
+            type="text"
+            onBlurHandler={handleInputValidationOnBlur}
+            showErrorMessage={formState.nombre.showError}
+            validationMessage={validateEmptyMessage}          
+          />
+          <Input
+            className="register-input-field"
+            field="apellido"
+            label="Apellido"
+            value={formState.apellido.value}
+            onChangeHandler={handleInputValueChange}
+            type="text"
+            onBlurHandler={handleInputValidationOnBlur}
+            showErrorMessage={formState.apellido.showError}
+            validationMessage={validateEmptyMessage}              
+          />
+          <Input
+            className="register-input-field"
+            field="foto"
+            label="Foto"
+            value={formState.foto.value}
+            onChangeHandler={handleInputValueChange}
+            type="text"
+            onBlurHandler={handleInputValidationOnBlur}
+            showErrorMessage={formState.foto.showError}
+            validationMessage={validateEmptyMessage}              
+          />
+          <Input
+            className="register-input-field"
+            field="email"
+            label="Email"
+            value={formState.email.value}
+            onChangeHandler={handleInputValueChange}
+            type="text"
+            onBlurHandler={handleInputValidationOnBlur}
+            showErrorMessage={formState.email.showError}
+            validationMessage={emailValidationMessage}          
+          />        
+          <Input
+            className="register-input-field"
+            field="password"
+            label="Password"
+            value={formState.password.value}
+            onChangeHandler={handleInputValueChange}
+            type="text"
+            onBlurHandler={handleInputValidationOnBlur}
+            showErrorMessage={formState.password.showError}
+            validationMessage={passwordValidationMessage}
+          />
+          <Input
+            className="register-input-field"
+            field="passwordConfir"
+            label="Password Confirmation"
+            value={formState.passwordConfir.value}
+            onChangeHandler={handleInputValueChange}
+            type="text"
+            onBlurHandler={handleInputValidationOnBlur}
+            showErrorMessage={formState.passwordConfir.showError}
+            validationMessage={passwordConfirmationMessage}
+          />
+          <button className="register-button" onClick={handleRegister} disabled={isSubmitButtonDisabled}>
+            Register
+          </button>
+        </form>
+        <br />
+        <span className="register-link" onClick={switchAuthHandler}>
+          Ya tienes una cuenta? Inicia sesión!
+        </span>
       </div>
-      <h1>Registro</h1>
-      <form>
-        <Input
-          className="button"
-          field="nombre"
-          label="Nombre"
-          value={formState.nombre.value}
-          onChangeHandler={handleInputValueChange}
-          type="text"
-          onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.nombre.showError}
-          validationMessage={validateEmptyMessage}          
-        />
-        <Input
-          className="button"
-          field="apellido"
-          label="Apellido"
-          value={formState.apellido.value}
-          onChangeHandler={handleInputValueChange}
-          type="text"
-          onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.apellido.showError}
-          validationMessage={validateEmptyMessage}              
-        />
-        <Input
-          className="button"
-          field="foto"
-          label="Foto"
-          value={formState.foto.value}
-          onChangeHandler={handleInputValueChange}
-          type="text"
-          onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.foto.showError}
-          validationMessage={validateEmptyMessage}              
-        />
-        <Input
-          className="button"
-          field="email"
-          label="Email"
-          value={formState.email.value}
-          onChangeHandler={handleInputValueChange}
-          type="text"
-          onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.email.showError}
-          validationMessage={emailValidationMessage}          
-        />        
-        <Input
-          field="password"
-          label="Password"
-          value={formState.password.value}
-          onChangeHandler={handleInputValueChange}
-          type="text"
-          onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.password.showError}
-          validationMessage={passwordValidationMessage}
-        />
-        <Input
-          field="passwordConfir"
-          label="Password Confirmation"
-          value={formState.passwordConfir.value}
-          onChangeHandler={handleInputValueChange}
-          type="text"
-          onBlurHandler={handleInputValidationOnBlur}
-          showErrorMessage={formState.passwordConfir.showError}
-          validationMessage={passwordConfirmationMessage}
-        />
-        <button onClick={handleRegister} disabled={isSubmitButtonDisabled}>
-          Register
-        </button>
-      </form>
-      <br></br>
-      <span className="registro" onClick={switchAuthHandler}>Ya tienes una cuenta? inicia sesion!</span>
-    </div>
     </div>
   );
 };

@@ -22,8 +22,8 @@ export const useUserUpdate = () => {
     setLoading(false);
   };
 
-  const saveUserDetails = async (data) => {
-    const response = await userUpdate(data);
+  const saveUserDetails = async (userId, data) => {
+    const response = await userUpdate(userId, data);
 
     if (response.error) {
       return toast.error(

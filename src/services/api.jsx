@@ -63,21 +63,25 @@ export const getUserById = async (userId) => {
     }
 }
 
-export const userUpdate = async (data) => {
+export const userUpdate = async (userId, data) => {
     try {
-        return await apiClient.put('/registro/update', data); 
+        console.log(userId)
+        return await apiClient.put(`/registro/update/${userId}`, data); 
     } catch (e) {
+        console.log(data, userId)
         return {
             error: true,
             e
         };
     }    
-}
+};
+
 
 /***Hoteles */
 export const registerHotel = async (data) => {
     try {
         return await apiClient.post('/hotel/addHotel', data);
+        console.log(data)
     } catch (e) {
         return {
             error: true,
