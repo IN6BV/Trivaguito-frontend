@@ -5,6 +5,10 @@ export const ReportHotelPage = () => {
   return (
     <>
       <Navbar />
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <div>
         <h1>Report Hotel</h1>
         <ReportHotels autoRender />

@@ -35,7 +35,7 @@ export const AddHabitationForm = () => {
           }
     }
   return (
-    <div>
+    <div style={{backgroundColor:"white", padding:"15px"}}>
       <h2>Registro de Habitación</h2>
       {error && <p className='text-danger'>{error}</p>}
       <Form onSubmit={handleFormSubmit}>
