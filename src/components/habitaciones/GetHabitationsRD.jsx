@@ -1,10 +1,23 @@
 import React from 'react';
+import { useState } from 'react';
 import { useGetHabitationFromHotel } from '../../shared/hooks/useGetHabitationFromHotel';
 import { Card, Carousel, Spinner, Alert, Container, Row, Col, Button} from 'react-bootstrap';
-
+import { UpdateHabitationModal } from './UpdateHabitationModal';
+import { DeleteConfirmationModal } from './DeleteHabitationModal';
 export const GetHabitationsRD = () => {
     const { habitaciones, loading, error } = useGetHabitationFromHotel();
+    const [showUpdateModal, setShowUpdateModal] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [selectedHabitacion, setSelectedHabitacion] = useState(null);
+    const handleUpdateClick = (habitacion) => {
+        setSelectedHabitacion(habitacion);
+        setShowUpdateModal(true);
+    };
 
+    const handleDeleteClick = (habitacion) => {
+        setSelectedHabitacion(habitacion);
+        setShowDeleteModal(true);
+    };
     if (loading) {
         return <Spinner animation="border" />;
     }
@@ -48,13 +61,27 @@ export const GetHabitationsRD = () => {
                                 <br />
                                 Precio por Noche: {habitacion.precioPorNoche || 'N/A'}
                             </Card.Text>
-                            <Button variant="primary" className="mr-2">Update</Button>
-                            <Button variant="danger">Delete</Button>
+                            <Button variant="primary" className="mr-2" onClick={() => handleUpdateClick(habitacion)}>Actualizar</Button>
+                            <Button variant="danger" onClick={() => handleDeleteClick(habitacion)}>Delete</Button>
                         </Card.Body>
                     </Card>
                 </Col>
             ))}
         </Row>
+        {selectedHabitacion && (
+                <UpdateHabitationModal
+                    show={showUpdateModal}
+                    handleClose={() => setShowUpdateModal(false)}
+                    habitacion={selectedHabitacion}
+                />
+            )}
+            {selectedHabitacion && (
+                <DeleteConfirmationModal
+                    show={showDeleteModal}
+                    handleClose={() => setShowDeleteModal(false)}
+                    habitacionId={selectedHabitacion._id}
+                />
+            )}
     </Container>
     );
 };

@@ -129,3 +129,23 @@ export const getHabitationsFromHotel = async () =>{
         }
     }
 }
+export const putHabitacion = async (habitacionId, data) => {
+    try {
+        return await apiClient.put(`/habitacion/updateHabitacion/${habitacionId}`, data);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
+export const deleteHabitation = async (habitacionId) => {
+    try {
+        return await apiClient.delete(`/habitacion/deleteHabitacion/${habitacionId}`);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
