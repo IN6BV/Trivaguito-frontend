@@ -20,7 +20,7 @@ export const HotelUserReservations = () => {
   }, []);
   return (
     <div>
-      <h2>Usuarios con reservaciones del Hotel</h2>
+      <h2 style={{color: 'white'}}>Usuarios con reservaciones del Hotel</h2>
       {error && <p className="text-danger">{error}</p>}
       <div>
         <CardGroup>

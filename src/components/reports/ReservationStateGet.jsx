@@ -32,7 +32,7 @@ export const ReservationStateGet = () => {
   };
   return (
     <div>
-      <h2>Estado Reservaciones del Hotel</h2>
+      <h2 style={{color: 'white'}}>Estado Reservaciones del Hotel</h2>
       {error && <p className="text-danger">{error}</p>}
       <div>
         <CardGroup>

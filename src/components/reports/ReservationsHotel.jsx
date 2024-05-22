@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchReservationsForHotel } from '../../services/api';
 import Card from 'react-bootstrap/Card';
 import { CardGroup } from 'react-bootstrap';
+import { BootstrapWrapper } from '../../assets/img/BootStrapWrapper';
 export const HotelReservations = () => {
   const [reservations, setReservations] = useState([]);
   const [error, setError] = useState('');
@@ -19,8 +20,9 @@ export const HotelReservations = () => {
     fetchReservations()
   }, [])
   return (
-    <div>
-      <h2>Reservaciones del Hotel</h2>
+    <BootstrapWrapper>
+      <div>
+      <h2 style={{color: 'white'}}>Reservaciones del Hotel</h2>
       {error && <p className="text-danger">{error}</p>}
       <div>
         <CardGroup>
@@ -44,5 +46,6 @@ export const HotelReservations = () => {
         </CardGroup>
       </div>
     </div>
+    </BootstrapWrapper>
   );
 };
