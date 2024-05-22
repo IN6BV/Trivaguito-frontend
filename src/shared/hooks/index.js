@@ -1,3 +1,5 @@
+export { useUserDelete } from "./useUserDelete";
+
 export { useUserDetails } from "./useUserDetails";
 export {useRegisterH} from "./useRegisterH"
 export { useLogin } from "./useLogin";

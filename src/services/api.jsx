@@ -76,6 +76,16 @@ export const userUpdate = async (userId, data) => {
     }    
 };
 
+export const deleteUser = async (userId) => {
+    try {
+        return await apiClient.delete(`/registro/delete/${userId}`); 
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
 
 /***Hoteles */
 export const registerHotel = async (data) => {
