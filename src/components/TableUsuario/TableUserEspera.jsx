@@ -1,71 +1,42 @@
-import { useReactTable, getCoreRowModel, flexRender } from "@tanstack/react-table";
-import { getUser } from "../../services/api";
 
+import {useTableData} from "../../shared/hooks";
 
-
-export const TablePendientes = async () => {
-
-
-    const columns = [
-        {
-            header: "ID",
-            accessorKey: "_id"
-        },
-
-        {
-            header: "Nombre",
-            accessorKey: "nombre"
-        },
-        {
-            header: "Apellido",
-            accessorKey: "apellido"
-        },
-
-        {
-            header: "Email",
-            accessorKey: "email"
-        }
-
-    ]
-    const table = useReactTable({ getUser, columns, getCoreRowModel: getCoreRowModel(), })
-
+export const TablePendientes = () => {
+    const { table, flexRender } = useTableData();
 
     return (
-        <div>
-            <table>
-                <thead>
-                    {
-                        table.getHeaderGroups().map(getHeaderGroups => (
-                            <tr key={getHeaderGroups.id}>
-                                {
-                                    getHeaderGroups.headers.map(header => (
-                                        <th key={header.id}>
-                                            {header.column.columnDef.header}
-                                        </th>
-                                    ))
-                                }
-                            </tr>
-                        ))
-                    }
-                </thead>
-                <tbody>
-                    {table.getRowModel().rows.map((row) =>(
-                        <tr key={row.id}>
-                            {row.getVisibleCells().map((cell) =>(
-                                <td>
-                                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                </td>
-                            ))}
-                        </tr>
-
-                    ))}
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <h1>Id</h1>
+        <div className="table-container">
+        <table className="styled-table">
+            <thead>
+                {table.getHeaderGroups().map((headerGroup) => (
+                    <tr key={headerGroup.id}>
+                        {headerGroup.headers.map((header) => (
+                            <th key={header.id}>
+                                {header.column.columnDef.header}
+                            </th>
+                        ))}
                     </tr>
-                </tfoot>
-            </table>
-        </div>
+                ))}
+            </thead>
+            <tbody>
+                {table.getRowModel().rows.map((row) => (
+                    <tr key={row.id}>
+                        {row.getVisibleCells().map((cell) => (
+                            <td key={cell.id}>
+                                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                            </td>
+                        ))}
+                    </tr>
+                ))}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colSpan={table.getHeaderGroups()[0].headers.length}>
+                        <h1>Id</h1>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
     );
 };
