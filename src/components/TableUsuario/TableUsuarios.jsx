@@ -1,16 +1,27 @@
 import React, { useEffect } from 'react';
 import { useFetchUsers } from "../../shared/hooks/useFetchUsers";
 import "../../pages/myAccount/myAccount.css";
+import { Navbar } from '../navbar/Navbar';
+import { Link } from 'react-router-dom';
 
 export const TableUsuarioRegiste = () => {
-  const { users, getUsers} = useFetchUsers();
+  const { users, getUsers, loading, error } = useFetchUsers();
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [getUsers]);
 
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
+    <>
+    <Navbar />
     <div className="container">
       <h2 className="caption">Usuarios Registrados</h2>
       <div className="tableContainer">
@@ -22,7 +33,6 @@ export const TableUsuarioRegiste = () => {
               <th className="crud-table__header-cell">Foto</th>
               <th className="crud-table__header-cell">Email</th>
               <th className="crud-table__header-cell">Contraseña</th>
-              <th className="crud-table__header-cell">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -35,18 +45,19 @@ export const TableUsuarioRegiste = () => {
                     src={user.foto}
                     alt={`${user.nombre} ${user.apellido}`}
                     className="user-photo"
-                  />
+                    />
                 </td>
                 <td className="crud-table__cell">{user.email}</td>
                 <td className="crud-table__cell">{user.password}</td>
-                <td className="crud-table__cell">
-                  {/* Agrega botones de acciones aquí */}
-                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <Link to="/plataformManager">
+          <button>Regresar a Plataforma Admin</button>
+        </Link>
     </div>
+    </>
   );
 };

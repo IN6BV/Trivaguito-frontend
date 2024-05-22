@@ -1,8 +1,8 @@
 import { useState, useCallback } from "react";
-import { getUser as getUserRequest } from "../../services/api";
+import { listarInteresados as listarInteresadosRequest } from "../../services/api";
 import toast from "react-hot-toast";
 
-export const useFetchUsers = () => {
+export const useFetchLista = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ export const useFetchUsers = () => {
         setLoading(true);
         setError(null);
         try {
-            const userData = await getUserRequest();
+            const userData = await listarInteresadosRequest();
             console.log('userData:', userData); 
             if (userData.error) {
                 toast.error(
@@ -20,7 +20,9 @@ export const useFetchUsers = () => {
                 );
                 setError(userData.error);
             } else {
-                setUsers(userData.data.registros);
+                console.log('userData.data:', userData.data);
+                
+                setUsers(userData.data);
             }
         } catch (err) {
             toast.error('Error occurred when fetching users');

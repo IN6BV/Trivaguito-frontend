@@ -41,22 +41,20 @@ export const register = async (data) => {
     }
 };
 
-export const userUpdate = async (userId, data) => {
+export const getUser = async () => {
     try {
-        console.log(userId)
-        return await apiClient.put(`/registro/update/${userId}`, data); 
+        return await apiClient.get('/registro');
     } catch (e) {
-        console.log(data, userId)
         return {
             error: true,
             e
         };
-    }    
-};
+    }
+}
 
-export const getUser = async () => {
+export const getUserAHoteles = async () => {
     try {
-        return await apiClient.get('/registro/');
+        return await apiClient.get('/registro/adminHotel');
     } catch (e) {
         return {
             error: true,
@@ -156,3 +154,37 @@ export const fetchUsersWithReservationsInHotel = async () => {
         };
     }
 };
+
+export const listarInteresados = async () => {
+    try {
+        return await apiClient.get('/listaEspera/gets');
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
+
+export const acceptUser = async (userId) => {
+    try {
+        console.log('userId:', userId);
+        return await apiClient.put(`/registro/updateRole/${userId}`);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}
+
+export const deleteUserListaEspera = async (userId) => {
+    try {
+        return await apiClient.delete(`/listaEspera/delete/${userId}`);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+}

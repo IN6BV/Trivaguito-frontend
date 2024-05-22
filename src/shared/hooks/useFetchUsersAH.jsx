@@ -1,8 +1,8 @@
 import { useState, useCallback } from "react";
-import { getUser as getUserRequest } from "../../services/api";
+import { getUserAHoteles as getUserARequest } from "../../services/api";
 import toast from "react-hot-toast";
 
-export const useFetchUsers = () => {
+export const useFetchUsersAH = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ export const useFetchUsers = () => {
         setLoading(true);
         setError(null);
         try {
-            const userData = await getUserRequest();
+            const userData = await getUserARequest();
             console.log('userData:', userData); 
             if (userData.error) {
                 toast.error(

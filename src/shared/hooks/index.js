@@ -7,4 +7,3 @@ export {useUserById} from './useUserById'
 export { useUserDelete } from "./useUserDelete";
 export {useUserUpdate} from './useUserUpdate'
 export {useRegisterHabitacion} from "./useRegistroHabitaciones"
-export {useUserUpdate} from './useUserUpdate'
