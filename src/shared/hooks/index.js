@@ -6,3 +6,4 @@ export {logout} from './useLogout'
 export {useUserById} from './useUserById'
 export {useUserUpdate} from './useUserUpdate'
 export {useRegisterHabitacion} from "./useRegistroHabitaciones"
+export { useFetchUsers } from "./useFetchUsers";
