@@ -53,7 +53,7 @@
     font-size: 12px;
   }
   
-  button {
+  .edit-user-button {
     width: 100%;
     padding: 10px;
     background-color: #0F3460;
@@ -65,7 +65,7 @@
     transition: background-color 0.3s;
   }
   
-  button:hover {
+  .edit-user-button:hover {
     background-color: #1A1A2E;
   }
   

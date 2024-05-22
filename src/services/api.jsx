@@ -43,7 +43,9 @@ export const register = async (data) => {
 
 export const getUser = async () => {
     try {
-        return await apiClient.get('/registro');
+        const hola = await apiClient.get('/registro');
+            console.log(hola)
+        return hola;
     } catch (e) {
         return {
             error: true,
@@ -81,7 +83,6 @@ export const userUpdate = async (userId, data) => {
 export const registerHotel = async (data) => {
     try {
         return await apiClient.post('/hotel/addHotel', data);
-        console.log(data)
     } catch (e) {
         return {
             error: true,

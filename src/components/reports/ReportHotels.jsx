@@ -1,4 +1,3 @@
-import React from 'react';
 import {fetchHotelReservations} from '../../services/api'
 import Chart from 'chart.js/auto';
 
@@ -36,9 +35,9 @@ export const ReportHotels = () => {
     };
 
     return (
-        <div>
+        <div className='button-grafic-container'>
             <canvas id="myChart"></canvas>
-            <button onClick={handleClick}>
+            <button onClick={handleClick} className='edit-user-button'>
                 Ver Gráfica de Hoteles Más Solicitados
             </button>
         </div>
